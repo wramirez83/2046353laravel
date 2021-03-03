@@ -1,13 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\CommentController;
 
-Route::get('/', function () {
-    return view('users');
-});
-Route::get('/q', function(){
-    return view('qualify');
-});
-Route::get('/sum', function(){
-    return 5+3;
-});
+Route::get('/', [CommentController::class, 'index']);
+Route::post('/save', [CommentController::class, 'save'])->name('save');
