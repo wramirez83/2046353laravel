@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentsTable extends Migration
+class CreateProgramsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('programs', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 20);
-            $table->string('last_name', 20)->nullable();
-            $table->string('email', 40);
-            $table->enum('role',['Aprendiz', 'Instructor'])->default('Aprendiz');
-            $table->string('comment', 800);
+            $table->integer('code');
+            $table->string('version', 10);
+            $table->string('name', 100);
+            $table->enum('status', ['Activo', 'Inactivo'])->default('Activo');
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comments');
+        Schema::dropIfExists('programs');
     }
 }

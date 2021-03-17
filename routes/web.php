@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
-use App\Http\Controllers\CommentController;
 
-Route::get('/', [CommentController::class, 'index']);
-Route::post('/save', [CommentController::class, 'save'])->name('save');
+Route::get('/', [ProgramController::class, 'saveProgram']);
+Route::get('/get', [ProgramController::class, 'getProgram']);
+

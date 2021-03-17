@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+  db:
+    image: mariadb
+    volumes:
+      - /opt/data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: appvisit2
+    environment:
+      MYSQL_ROOT_PASSWORD: wramirez
+      MYSQL_DATABASE: visit
+      
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
